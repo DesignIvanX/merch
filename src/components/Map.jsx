@@ -12,13 +12,15 @@ const Map = ({ data }) => {
   };
   return (
     <LoadScript googleMapsApiKey="AIzaSyBqtfdNws7OllPzejQzL4-XBNUYSeILzO4">
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={8}
-        center={defaultCenter}
-      >
-        <Marker position={defaultCenter} />
-      </GoogleMap>
+      {data !== undefined && (
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={8}
+          center={defaultCenter}
+        >
+          <Marker position={defaultCenter} />
+        </GoogleMap>
+      )}
     </LoadScript>
   );
 };
