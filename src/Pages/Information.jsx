@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../context/AppContext";
 import { FaBackward } from "react-icons/fa";
-
+import Seo from "../seo/Seo";
 import "../source/style/components/Information.css";
 
 const Information = (props) => {
@@ -26,51 +26,74 @@ const Information = (props) => {
     props.history.push("/checkout/payment");
   };
   return (
-    <div className="Information">
-      <div className="Information-content">
-        <div className="Information-head">
-          <h2>Information of contact</h2>
-        </div>
-        <div className="Information-form">
-          <form ref={form}>
-            <input type="text" placeholder="Last Name" name="lastName" />
-            <input type="text" placeholder="Email" name="email" />
-            <input type="text" placeholder="Address" name="address" />
-            <input type="text" placeholder="Apto" name="apto" />
-            <input type="text" placeholder="City" name="city" />
-            <input type="text" placeholder="Country" name="country" />
-            <input type="text" placeholder="State" name="state" />
-            <input type="text" placeholder="Postal code" name="postalCode" />
-            <input type="text" placeholder="Phone Number" name="phoneNumber" />
-          </form>
-        </div>
-        <div className="Information-buttons">
-          <div className="Information-back">
-            <Link to="/checkout/">
-              <FaBackward title="Back" />
-            </Link>
+    <>
+      <Seo
+        title="Information"
+        twitter_card="summary_large_image"
+        twitter_site="@TU_USER"
+        twitter_creator="@TU_USER"
+        twitter_title="Information"
+        twitter_description="Informations"
+        twitter_image="s3.amazonaws.com/gndx.dev/gndxdev.png"
+        og_title="Information"
+        og_description="Information"
+        og_image="s3.amazonaws.com/gndx.dev/gndxdev.png"
+        og_url="shop.example.com"
+        og_site_name="Information"
+        og_locale="es_ES"
+        og_type="article"
+        fb_app_id="ID_APP_FACEBOOK"
+      />
+      <div className="Information">
+        <div className="Information-content">
+          <div className="Information-head">
+            <h2>Information of contact</h2>
           </div>
-          <div className="Information-next">
-            <button type="button" onClick={handleSubmit}>
-              Pay
-            </button>
+          <div className="Information-form">
+            <form ref={form}>
+              <input type="text" placeholder="Last Name" name="lastName" />
+              <input type="text" placeholder="Email" name="email" />
+              <input type="text" placeholder="Address" name="address" />
+              <input type="text" placeholder="Apto" name="apto" />
+              <input type="text" placeholder="City" name="city" />
+              <input type="text" placeholder="Country" name="country" />
+              <input type="text" placeholder="State" name="state" />
+              <input type="text" placeholder="Postal code" name="postalCode" />
+              <input
+                type="text"
+                placeholder="Phone Number"
+                name="phoneNumber"
+              />
+            </form>
           </div>
-        </div>
-      </div>
-      <div className="Informatin-sidebar">
-        <h3>Orders:</h3>
-        {cart.map((item) => {
-          return (
-            <div className="Information-item" key={item.cartId}>
-              <div className="Information-element">
-                <h4>{item.title}</h4>
-                <span>${item.price}</span>
-              </div>
+          <div className="Information-buttons">
+            <div className="Information-back">
+              <Link to="/checkout/">
+                <FaBackward title="Back" />
+              </Link>
             </div>
-          );
-        })}
+            <div className="Information-next">
+              <button type="button" onClick={handleSubmit}>
+                Pay
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="Informatin-sidebar">
+          <h3>Orders:</h3>
+          {cart.map((item) => {
+            return (
+              <div className="Information-item" key={item.cartId}>
+                <div className="Information-element">
+                  <h4>{item.title}</h4>
+                  <span>${item.price}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
