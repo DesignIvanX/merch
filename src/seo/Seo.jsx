@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 
 const Seo = ({
   title,
+  description,
   twitter_card,
   twitter_site,
   twitter_creator,
@@ -21,6 +22,7 @@ const Seo = ({
   return (
     <Helmet>
       <title>{title}</title>
+      <meta name="description" content={description} />
       {/* Twitter */}
       <meta name="twitter:card" content={twitter_card} />
       <meta name="twitter:site" content={twitter_site} />

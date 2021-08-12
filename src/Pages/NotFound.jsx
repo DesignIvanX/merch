@@ -5,6 +5,7 @@ const NotFound = () => {
     <div>
       <Seo
         title="NotFound"
+        description="description"
         twitter_card="summary_large_image"
         twitter_site="@TU_USER"
         twitter_creator="@TU_USER"

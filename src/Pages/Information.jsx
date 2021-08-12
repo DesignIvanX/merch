@@ -29,6 +29,7 @@ const Information = (props) => {
     <>
       <Seo
         title="Information"
+        description="description"
         twitter_card="summary_large_image"
         twitter_site="@TU_USER"
         twitter_creator="@TU_USER"
