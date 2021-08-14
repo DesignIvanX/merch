@@ -7,8 +7,7 @@ import Product from "../containers/Product";
 import "../source/style/components/Products.css";
 
 const Products = () => {
-  const { state, addToCart } = useContext(AppContext);
-  const { products } = state;
+  const { products, addToCart } = useContext(AppContext);
   const handleAddToCart = (product) => () => {
     const random = Math.floor(Math.random() * 1000);
     const newProduct = { ...product, cartId: `${product.id}-${random}` };

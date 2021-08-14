@@ -1,9 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import initialState from "../initialState";
 
+const API = "https://strapi-api-rest.herokuapp.com/products";
+
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        fetch(API)
+          .then((response) => response.json())
+          .then((data) => setProducts(data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   const addToCart = (payload) => {
     setState({
       ...state,
@@ -42,6 +57,7 @@ const useInitialState = () => {
     addToBuyer,
     sumTotal,
     addNewOrder,
+    products,
     state,
   };
 };
